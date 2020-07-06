@@ -1,0 +1,55 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Year</label>
+      <select
+        ngModel
+        name="year"
+        class="custom-select mr-sm-2"
+        id="inlineFormCustomSelect"
+      >
+        <option selected>Choose...</option>
+        <option *ngFor="let year of years" [ngValue]="year">
+          {{ year }}
+        </option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Team</label>
+      <select
+        ngModel
+        name="teamName"
+        class="custom-select mr-sm-2"
+        id="inlineFormCustomSelect"
+      >
+        <option value="all"></option>
+        <option *ngFor="let team of teams" [ngValue]="team">
+          {{ team }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-1">Submit</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Team Name</th>
+      <th>Average Grade</th>
+      <th>No Of Players Drafted</th>
+      <th>Players Drafted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data">
+      <td>{{ d.teamName }}</td>
+      <td>{{ d.averageGrade }}</td>
+      <td>{{ d.noOfPlayersDrafted }}</td>
+      <td>{{ d.playersDrafted }}</td>
+    </tr>
+  </tbody>
+</table>
