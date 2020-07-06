@@ -8,7 +8,7 @@ import { AverageGradeService } from './../../services/average-grade.service';
 export class AverageGradeWithStealComponent implements OnInit {
   data: any = [];
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
-
+  public isCollapsed = false;
   teams = [
     'Arizona Cardinals',
     'Atlanta Falcons',
