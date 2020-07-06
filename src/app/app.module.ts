@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { AverageGradeComponent } from './components/average-grade/average-grade.component';
 import { AverageGradeWithStealComponent } from './components/average-grade-with-steal/average-grade-with-steal.component';
 import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/draft-analysis-home.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AboutComponent } from './about/about.component';
     AverageGradeWithStealComponent,
     DraftAnalysisHomeComponent,
     AboutComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
