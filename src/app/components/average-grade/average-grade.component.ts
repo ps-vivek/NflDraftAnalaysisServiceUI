@@ -8,6 +8,8 @@ import { AverageProspectGradeInfo } from './../../average-prospect-grade-info';
   styleUrls: ['./average-grade.component.css'],
 })
 export class AverageGradeComponent implements OnInit {
+  public isCollapsed = false;
+
   prospectInfo: AverageProspectGradeInfo[] = [];
   data: any = [];
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
