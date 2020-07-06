@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AverageGradeComponent } from './components/average-grade/average-grade.component';
 import { AverageGradeWithStealComponent } from './components/average-grade-with-steal/average-grade-with-steal.component';
 import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/draft-analysis-home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/dra
     AverageGradeComponent,
     AverageGradeWithStealComponent,
     DraftAnalysisHomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
