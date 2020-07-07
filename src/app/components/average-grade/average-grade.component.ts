@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AverageGradeService } from './../../services/average-grade.service';
 import { AverageProspectGradeInfo } from './../../average-prospect-grade-info';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-average-grade',
@@ -9,7 +10,6 @@ import { AverageProspectGradeInfo } from './../../average-prospect-grade-info';
 })
 export class AverageGradeComponent implements OnInit {
   public isCollapsed = false;
-
   prospectInfo: AverageProspectGradeInfo[] = [];
   data: any = [];
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
@@ -52,11 +52,23 @@ export class AverageGradeComponent implements OnInit {
     'Washington Redskins',
   ];
 
-  constructor(private averageGradeService: AverageGradeService) {}
+  constructor(
+    private averageGradeService: AverageGradeService,
+    private route: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 
   submit(f) {
+    this.route.navigate(['./'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        year: f.controls['year'].value as string,
+        teamname: f.controls['teamName'].value as string,
+      },
+    });
+
     this.averageGradeService
       .getAverageGrade(
         f.controls['teamName'].value as string,

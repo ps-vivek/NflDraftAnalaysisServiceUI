@@ -9,7 +9,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: DraftAnalysisHomeComponent },
   { path: 'nfldraftanalysis', component: DraftAnalysisHomeComponent },
-  { path: 'nfldraftanalysis/averagegrades', component: AverageGradeComponent },
+  {
+    path: 'nfldraftanalysis/averagegrades',
+    component: AverageGradeComponent,
+  },
   {
     path: 'nfldraftanalysis/averagegradeswithsteal',
     component: AverageGradeWithStealComponent,
