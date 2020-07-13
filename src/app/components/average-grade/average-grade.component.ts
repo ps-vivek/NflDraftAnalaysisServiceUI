@@ -10,10 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AverageGradeComponent implements OnInit {
   public isCollapsed = false;
-  prospectInfo: AverageProspectGradeInfo[] = [];
-  data: any = [];
+  data: AverageProspectGradeInfo[] = [];
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
-
   teams = [
     'Arizona Cardinals',
     'Atlanta Falcons',
@@ -61,20 +59,26 @@ export class AverageGradeComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(f) {
-    this.route.navigate(['./'], {
-      relativeTo: this.activatedRoute,
-      queryParams: {
-        year: f.controls['year'].value as string,
-        teamname: f.controls['teamName'].value as string,
-      },
-    });
+    this.data = [];
+    console.log(('Before' + f.controls['isStealGrade'].value) as string);
+    let stealGrade = f.controls['isStealGrade'].value;
+    (f.controls['isStealGrade'].value as string) === null ? false : true;
+    console.log(('After:' + f.controls['isStealGrade'].value) as string);
 
+    let teamName =
+      (f.controls['teamName'].value as string) === null
+        ? 'all'
+        : (f.controls['teamName'].value as string);
+
+    console.log(f);
     this.averageGradeService
       .getAverageGrade(
         f.controls['teamName'].value as string,
-        f.controls['year'].value as string
+        teamName,
+        stealGrade as boolean
       )
       .subscribe((response) => {
+        console.log(response);
         this.data = response;
       });
   }

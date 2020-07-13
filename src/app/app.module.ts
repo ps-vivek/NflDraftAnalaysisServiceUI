@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AverageGradeComponent } from './components/average-grade/average-grade.component';
@@ -27,6 +28,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    ReactiveFormsModule,
   ],
 
   providers: [],

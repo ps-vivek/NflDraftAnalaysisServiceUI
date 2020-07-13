@@ -47,52 +47,56 @@
         </div>
 
         <form #f="ngForm" (ngSubmit)="submit(f)">
-          <div class="col-sm">
-            <div class="form-row align-items-center">
-              <div class="col-auto">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Year</label>
-                <select
-                  ngModel
-                  name="year"
-                  class="custom-select mr-sm-2"
-                  id="inlineFormCustomSelect"
-                >
-                  <option selected>Choose...</option>
-                  <option *ngFor="let year of years" [ngValue]="year">
-                    {{ year }}
-                  </option>
-                </select>
-              </div>
-              <div class="col-auto">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Team</label>
-                <select
-                  ngModel
-                  name="teamName"
-                  class="custom-select mr-sm-2"
-                  id="inlineFormCustomSelect"
-                >
-                  <option value="all"></option>
-                  <option *ngFor="let team of teams" [ngValue]="team">
-                    {{ team }}
-                  </option>
-                </select>
-              </div>
+          <div class="form-row">
+            <div class="col-3">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Year</label>
+              <select
+                ngModel
+                name="year"
+                class="custom-select mr-sm-2"
+                id="inlineFormCustomSelect"
+              >
+                <option selected>Choose...</option>
+                <option *ngFor="let year of years" [ngValue]="year">
+                  {{ year }}
+                </option>
+              </select>
             </div>
-            <br />
-            <div class="text-right">
-              <div class="col-sm">
-                <div class="col-auto">
-                  <button type="submit" class="btn btn-primary mb-4">
-                    Search
-                  </button>
-                </div>
-              </div>
+
+            <div class="col-5">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Team</label>
+              <select
+                ngModel
+                name="teamName"
+                class="custom-select mr-sm-2"
+                id="inlineFormCustomSelect"
+              >
+                <option value="all"></option>
+                <option *ngFor="let team of teams" [ngValue]="team">
+                  {{ team }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ngModel name="isStealGrade" /> Include
+              Steal Grades
+            </label>
+          </div>
+
+          <div class="col-sm">
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-4">
+                Search
+              </button>
             </div>
           </div>
         </form>
       </div>
 
-      <p *ngIf="data.length">
+      <p *ngIf="data != null && data.length">
         <button
           type="button"
           class="btn btn-outline-primary"
@@ -103,7 +107,11 @@
           Show/Hide Grades
         </button>
       </p>
-      <div id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="data.length">
+      <div
+        id="collapseExample"
+        [ngbCollapse]="isCollapsed"
+        *ngIf="data != null && data.length"
+      >
         <div class="card">
           <div class="card-body">
             <table class="table table-striped">
