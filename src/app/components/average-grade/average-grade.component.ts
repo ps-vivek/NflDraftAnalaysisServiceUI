@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AverageGradeService } from './../../services/average-grade.service';
 import { AverageProspectGradeInfo } from './../../average-prospect-grade-info';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-average-grade',
   templateUrl: './average-grade.component.html',
@@ -11,6 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AverageGradeComponent implements OnInit {
   public isCollapsed = false;
   data: AverageProspectGradeInfo[] = [];
+  defaultStealGrade = false;
+  registerForm: FormGroup;
+  submitted = false;
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
   teams = [
     'Arizona Cardinals',
@@ -53,33 +56,52 @@ export class AverageGradeComponent implements OnInit {
   constructor(
     private averageGradeService: AverageGradeService,
     private route: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      year: ['', Validators.required],
+      team: ['', Validators.required],
+      stealGrade: [''],
+    });
+  }
 
-  submit(f) {
+  get f() {
+    return this.registerForm.controls;
+  }
+
+  onSubmit(f) {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
     this.data = [];
-    console.log(('Before' + f.controls['isStealGrade'].value) as string);
-    let stealGrade = f.controls['isStealGrade'].value;
-    (f.controls['isStealGrade'].value as string) === null ? false : true;
-    console.log(('After:' + f.controls['isStealGrade'].value) as string);
 
-    let teamName =
-      (f.controls['teamName'].value as string) === null
-        ? 'all'
-        : (f.controls['teamName'].value as string);
+    let stealGradeInput =
+      this.registerForm.get('stealGrade').value === ''
+        ? this.defaultStealGrade
+        : this.registerForm.get('stealGrade').value;
+    let teamNameInput = this.registerForm.get('team').value;
+    let yearInput = this.registerForm.get('year').value;
 
-    console.log(f);
     this.averageGradeService
-      .getAverageGrade(
-        f.controls['teamName'].value as string,
-        teamName,
-        stealGrade as boolean
-      )
+      .getAverageGrade(teamNameInput, yearInput, stealGradeInput as boolean)
       .subscribe((response) => {
         console.log(response);
         this.data = response;
       });
+
+    // display form values on success
+    console.log(JSON.stringify(this.registerForm.value, null, 4));
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
   }
 }
