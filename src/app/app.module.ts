@@ -13,6 +13,7 @@ import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/dra
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AboutComponent,
     NotFoundComponent,
     FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

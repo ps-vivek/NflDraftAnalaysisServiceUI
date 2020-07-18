@@ -20,49 +20,42 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link active">Home</a>
-            <a routerLink="nfldraftanalysis/about" class="nav-item nav-link"
-              >About</a
-            >
-          </div>
-        </div>
-      </div>
-    </nav>
+    <app-header></app-header>
 
-    <div class="container-fluid">
-      <div class="jumbotron">
-        <h1>NFL Draft Analysis App</h1>
-        <p class="lead">
-          For starters, drafts are the medium through which nations best players
-          from colleges step into the NFL arena. Also, the team which had the
-          worst record last year gets to pick first in the draft. Likewise, team
-          which won a championship last year, gets to pick last in a draft. In
-          summary, teams pick in the reverse order of the standings that they
-          finished last season. Visit
-          <a
-            href="https://github.com/ps-vivek/NflDraftAnalysisService/blob/master/Nfl_Draft_Analysis_Intro.docx"
-            target="_blank"
-            >Nfl_Draft_Analysis_Intro</a
-          >
-          to learn more about this app.
-        </p>
+    <div
+      class="container-fluid pb-1 pt-1 packers-color packers-color-border-three-sides"
+    >
+      <div class="row">
+        <div class="col">
+          <p>
+            For starters, drafts are the medium through which nations best
+            players from colleges step into the NFL arena. Also, the team which
+            had the worst record last year gets to pick first in the draft.
+            Likewise, team which won a championship last year, gets to pick last
+            in a draft. In summary, teams pick in the reverse order of the
+            standings that they finished last season. Visit
+            <a
+              href="https://github.com/ps-vivek/NflDraftAnalysisService/blob/master/Nfl_Draft_Analysis_Intro.docx"
+              target="_blank"
+              >Nfl_Draft_Analysis_Intro</a
+            >
+            to learn more about this app.
+          </p>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm">
           <h2>Average draft Grade</h2>
           <p>
-            This API will provide the average draft grade of the players drafted
-            by teams in a particular draft year without considering steal grade.
+            This page will provide the average draft grade of the players
+            drafted by teams in a particular draft year without considering
+            steal grade.
           </p>
           <p>
             <a
               routerLink="nfldraftanalysis/averagegrades"
               target="_self"
-              class="btn btn-success"
+              class="btn packers-alternate-color-btn"
               >Fetch Average Draft Grades »</a
             >
           </p>
@@ -70,20 +63,21 @@
         <div class="col-sm">
           <h2>Average draft grade with steal</h2>
           <p>
-            This API will provide the average draft grade of the players drafted
-            by teams in a particular draft year including steal grade.
+            This page will provide the average draft grade of the players
+            drafted by teams in a particular draft year including steal grade.
           </p>
           <p>
             <a
               routerLink="nfldraftanalysis/averagegradeswithsteal"
               target="_self"
-              class="btn btn-success"
+              class="btn packers-alternate-color-btn"
               >Fetch Average Draft Grades With Steal »</a
             >
           </p>
         </div>
       </div>
-      <hr />
     </div>
+
+    <hr />
   </body>
 </html>

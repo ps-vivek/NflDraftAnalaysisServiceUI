@@ -45,20 +45,6 @@ table.table.table-striped tr.packers-header-colors th {
   border-width: 2px;
 }
 
-.navbar-custom {
-  background-color: #ffb612;
-  border-style: groove;
-  border-left: 2px solid #203731;
-  border-right: 2px solid #203731;
-  border-top: 2px solid #203731;
-  border-bottom: 1px solid #203731;
-}
-
-.nav-link {
-  color: #393e52;
-  font-weight: bold;
-}
-
 .packers-alternate-color-btn {
   color: #393e52;
   background-color: #ffb612;

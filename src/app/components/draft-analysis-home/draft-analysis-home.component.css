@@ -1,0 +1,21 @@
+.packers-alternate-color-btn {
+  color: #393e52;
+  background-color: #ffb612;
+  border-color: #203731;
+  border-radius: 8px;
+  border-style: groove;
+  border-width: 2px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.packers-color {
+  background-color: #203731;
+  color: white;
+}
+
+.packers-color-border-three-sides {
+  border-left: 2px solid #ffb612;
+  border-right: 2px solid #ffb612;
+  border-bottom: 1px solid #ffb612;
+}

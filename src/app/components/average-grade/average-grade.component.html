@@ -20,29 +20,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <!--Navigation bar logic begins-->
-    <nav class="navbar navbar-expand-md navbar-custom">
-      <div class="container-fluid">
-        <div class="navbar-nav">
-          <a href="#" class="nav-item nav-link active">Home</a>
-          <a routerLink="/nfldraftanalysis/about" class="nav-item nav-link"
-            >About</a
-          >
-        </div>
-      </div>
-    </nav>
-    <!--Navigation bar logic ends-->
-    <!--Title content begins-->
-    <div
-      class="container-fluid pt-3 pb-1 packers-color packers-color-border-all"
-    >
-      <h3><span>NFL DRAFT ANALYSIS</span></h3>
-      <h6><span>Average Draft Grade Info</span></h6>
-    </div>
-    <!--Title content ends-->
+    <!--Navigation & Title bar content -->
+    <app-header></app-header>
     <div
       class="container-fluid pb-1 packers-color packers-color-border-three-sides"
     >
+      <h6><span>Average Draft Grade Info</span></h6>
       <div class="row">
         <div class="col">
           <p>
