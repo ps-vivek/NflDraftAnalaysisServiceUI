@@ -46,7 +46,7 @@ table.table.table-striped tr.packers-header-colors th {
 }
 
 .navbar-custom {
-  background-color: white;
+  background-color: #ffb612;
   border-style: groove;
   border-left: 2px solid #203731;
   border-right: 2px solid #203731;
@@ -55,7 +55,7 @@ table.table.table-striped tr.packers-header-colors th {
 }
 
 .nav-link {
-  color: #ffb612;
+  color: white;
   font-weight: bold;
 }
 
