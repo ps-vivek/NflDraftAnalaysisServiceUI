@@ -20,7 +20,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav">
@@ -33,135 +33,142 @@
       </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 style="text-align: center;">NFL Draft Analysis App</h1>
-      </div>
+    <div
+      class="container-fluid pt-3 pb-1 packers-color packers-color-border-all"
+    >
+      <h3><span>NFL DRAFT ANALYSIS APP</span></h3>
+      <h6><span>Average Draft Grade API</span></h6>
+    </div>
+
+    <div
+      class="container-fluid pb-1 packers-color packers-color-border-three-sides"
+    >
       <div class="row">
-        <div class="col-sm">
-          <h4>Average Draft Grade API</h4>
+        <div class="col">
           <p>
             This API will provide the average draft grade of the players drafted
             by teams in a particular draft year with or without considering
             steal grade.
           </p>
+          <p *ngIf="data != null && data.length">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed"
+              aria-controls="collapseExample"
+            >
+              Show/Hide Grades
+            </button>
+          </p>
         </div>
 
-        <!-- main app container -->
-        <div class="card m-5">
-          <h5 class="card-header">Average Draft Grade Inputs</h5>
-          <div class="card-body">
-            <form
-              #fo="ngForm"
-              [formGroup]="registerForm"
-              (ngSubmit)="onSubmit(fo)"
-            >
-              <div class="form-row">
-                <div class="form-group col-4">
-                  <label>Year</label>
-                  <select
-                    formControlName="year"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.year.errors }"
-                  >
-                    <option selected>Choose...</option>
-                    <option *ngFor="let year of years" [ngValue]="year">
-                      {{ year }}
-                    </option>
-                  </select>
-                  <div
-                    *ngIf="submitted && f.year.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.year.errors.required">Year is required</div>
-                  </div>
-                </div>
-                <!-- Validation for team-->
-                <div class="form-group col-7">
-                  <label>Team</label>
-                  <select
-                    formControlName="team"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.team.errors }"
-                  >
-                    <option selected>Choose...</option>
-                    <option *ngFor="let team of teams" [ngValue]="team">
-                      {{ team }}
-                    </option>
-                  </select>
-                  <div
-                    *ngIf="submitted && f.team.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.team.errors.required">Team is required</div>
-                  </div>
+        <div class="col">
+          <form
+            #fo="ngForm"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit(fo)"
+          >
+            <div class="form-row">
+              <!-- Validation for year Starts-->
+              <div class="form-group col-4">
+                <label>Year</label>
+                <select
+                  formControlName="year"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.year.errors }"
+                >
+                  <option selected>Choose Year...</option>
+                  <option *ngFor="let year of years" [ngValue]="year">
+                    {{ year }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="submitted && f.year.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.year.errors.required">Year is required</div>
                 </div>
               </div>
-              <div class="form-group form-check">
-                <input
-                  type="checkbox"
-                  formControlName="stealGrade"
-                  id="stealGrade"
-                  class="form-check-input"
-                />
-                <label for="stealGrade" class="form-check-label"
-                  >Steal Grade</label
+              <!-- Validation for year ends-->
+              <!-- Validation for team Starts-->
+              <div class="form-group col-4">
+                <label>Team</label>
+                <select
+                  formControlName="team"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.team.errors }"
                 >
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary mr-1">Search</button>
-                <button
-                  class="btn btn-secondary"
-                  type="reset"
-                  (click)="onReset()"
+                  <option selected>Choose Team...</option>
+                  <option *ngFor="let team of teams" [ngValue]="team">
+                    {{ team }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="submitted && f.team.errors"
+                  class="invalid-feedback"
                 >
-                  Reset
-                </button>
+                  <div *ngIf="f.team.errors.required">Team is required</div>
+                </div>
               </div>
-            </form>
-          </div>
+              <!-- Validation for team ends-->
+            </div>
+            <!-- Read steal grade begin-->
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                formControlName="stealGrade"
+                id="stealGrade"
+                class="form-check-input"
+              />
+              <label for="stealGrade" class="form-check-label"
+                >Steal Grade</label
+              >
+            </div>
+            <!-- Read steal grade ends-->
+            <button class="btn btn-primary mr-1">Search</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">
+              Reset
+            </button>
+          </form>
         </div>
       </div>
+    </div>
+    <!--End of form-->
 
-      <p *ngIf="data != null && data.length">
-        <button
-          type="button"
-          class="btn btn-outline-primary"
-          (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed"
-          aria-controls="collapseExample"
+    <div class="row">
+      <div class="col">
+        <div
+          id="collapseExample"
+          [ngbCollapse]="isCollapsed"
+          *ngIf="data != null && data.length"
         >
-          Show/Hide Grades
-        </button>
-      </p>
-      <div
-        id="collapseExample"
-        [ngbCollapse]="isCollapsed"
-        *ngIf="data != null && data.length"
-      >
-        <div class="card">
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Team Name</th>
-                  <th>Average Grade</th>
-                  <th>No Of Players Drafted</th>
-                  <th>Players Drafted</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let d of data">
-                  <td>{{ d.teamName }}</td>
-                  <td>{{ d.averageGrade }}</td>
-                  <td>{{ d.noOfPlayersDrafted }}</td>
-                  <td>{{ d.playersDrafted }}</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Team Name</th>
+                    <th>Average Grade</th>
+                    <th>No Of Players Drafted</th>
+                    <th>Players Drafted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let d of data">
+                    <td>{{ d.teamName }}</td>
+                    <td>{{ d.averageGrade }}</td>
+                    <td>{{ d.noOfPlayersDrafted }}</td>
+                    <td>{{ d.playersDrafted }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!--End of table-->
   </body>
 </html>

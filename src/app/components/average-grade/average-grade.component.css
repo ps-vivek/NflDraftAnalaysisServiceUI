@@ -1,0 +1,27 @@
+h3,
+h6 {
+  text-align: center;
+}
+h3 span {
+  border-radius: 8px;
+  border-color: #ffb612;
+  border-style: groove;
+  border-width: 2px;
+}
+.packers-color {
+  background-color: #203731;
+  color: white;
+}
+
+.packers-color-border-all {
+  border-left: 3px solid #ffb612;
+  border-right: 3px solid #ffb612;
+  border-top: 4px solid #ffb612;
+  border-bottom: 1px solid #ffb612;
+}
+
+.packers-color-border-three-sides {
+  border-left: 3px solid #ffb612;
+  border-right: 3px solid #ffb612;
+  border-bottom: 1px solid #ffb612;
+}

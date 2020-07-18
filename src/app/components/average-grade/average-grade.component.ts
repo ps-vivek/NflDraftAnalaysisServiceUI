@@ -83,7 +83,8 @@ export class AverageGradeComponent implements OnInit {
     this.data = [];
 
     let stealGradeInput =
-      this.registerForm.get('stealGrade').value === ''
+      this.registerForm.get('stealGrade').value === '' ||
+      this.registerForm.get('stealGrade').value === null
         ? this.defaultStealGrade
         : this.registerForm.get('stealGrade').value;
     let teamNameInput = this.registerForm.get('team').value;
@@ -103,5 +104,6 @@ export class AverageGradeComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+    this.data = [];
   }
 }
