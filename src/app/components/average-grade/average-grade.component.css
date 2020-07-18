@@ -1,5 +1,7 @@
 h3,
-h6 {
+h6,
+th,
+td {
   text-align: center;
 }
 h3 span {
@@ -14,8 +16,8 @@ h3 span {
 }
 
 .packers-color-border-all {
-  border-left: 3px solid #ffb612;
-  border-right: 3px solid #ffb612;
+  border-left: 2px solid #ffb612;
+  border-right: 2px solid #ffb612;
   border-top: 4px solid #ffb612;
   border-bottom: 1px solid #ffb612;
 }
@@ -24,4 +26,21 @@ h3 span {
   border-left: 3px solid #ffb612;
   border-right: 3px solid #ffb612;
   border-bottom: 1px solid #ffb612;
+}
+
+/**
+Overriding bootstrap values for setting table header and data colors
+**/
+table.table.table-striped tr.packers-data-colors td {
+  background-color: #203731;
+  color: white;
+  border-color: #ffb612;
+  border-style: groove;
+  border-width: 1px;
+}
+
+table.table.table-striped tr.packers-header-colors th {
+  border-color: #ffb612;
+  border-style: groove;
+  border-width: 2px;
 }

@@ -36,7 +36,7 @@
     <div
       class="container-fluid pt-3 pb-1 packers-color packers-color-border-all"
     >
-      <h3><span>NFL DRAFT ANALYSIS APP</span></h3>
+      <h3><span>NFL DRAFT ANALYSIS</span></h3>
       <h6><span>Average Draft Grade API</span></h6>
     </div>
 
@@ -147,7 +147,7 @@
             <div class="card-body">
               <table class="table table-striped">
                 <thead>
-                  <tr>
+                  <tr class="packers-header-colors">
                     <th>Team Name</th>
                     <th>Average Grade</th>
                     <th>No Of Players Drafted</th>
@@ -155,7 +155,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let d of data">
+                  <tr class="packers-data-colors" *ngFor="let d of data">
                     <td>{{ d.teamName }}</td>
                     <td>{{ d.averageGrade }}</td>
                     <td>{{ d.noOfPlayersDrafted }}</td>

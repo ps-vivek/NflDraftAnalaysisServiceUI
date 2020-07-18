@@ -66,6 +66,13 @@ export class AverageGradeComponent implements OnInit {
       team: ['', Validators.required],
       stealGrade: [''],
     });
+
+    this.averageGradeService
+      .getAverageGrade('all', '2014', false)
+      .subscribe((response) => {
+        console.log(response);
+        this.data = response;
+      });
   }
 
   get f() {
