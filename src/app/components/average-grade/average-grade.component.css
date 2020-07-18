@@ -55,7 +55,7 @@ table.table.table-striped tr.packers-header-colors th {
 }
 
 .nav-link {
-  color: white;
+  color: #393e52;
   font-weight: bold;
 }
 
@@ -80,4 +80,7 @@ footer {
   background: #ffb612;
   color: #393e52;
   font-weight: bold;
+  border-color: #203731;
+  border-width: 2px;
+  border-style: groove;
 }
