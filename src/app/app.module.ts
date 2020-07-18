@@ -12,6 +12,7 @@ import { AverageGradeWithStealComponent } from './components/average-grade-with-
 import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/draft-analysis-home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     DraftAnalysisHomeComponent,
     AboutComponent,
     NotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
