@@ -18,13 +18,13 @@ h3 span {
 .packers-color-border-all {
   border-left: 2px solid #ffb612;
   border-right: 2px solid #ffb612;
-  border-top: 4px solid #ffb612;
+  border-top: 1px solid #ffb612;
   border-bottom: 1px solid #ffb612;
 }
 
 .packers-color-border-three-sides {
-  border-left: 3px solid #ffb612;
-  border-right: 3px solid #ffb612;
+  border-left: 2px solid #ffb612;
+  border-right: 2px solid #ffb612;
   border-bottom: 1px solid #ffb612;
 }
 
@@ -43,4 +43,18 @@ table.table.table-striped tr.packers-header-colors th {
   border-color: #ffb612;
   border-style: groove;
   border-width: 2px;
+}
+
+.navbar-custom {
+  background-color: white;
+  border-style: groove;
+  border-left: 2px solid #203731;
+  border-right: 2px solid #203731;
+  border-top: 2px solid #203731;
+  border-bottom: 1px solid #203731;
+}
+
+.nav-link {
+  color: #ffb612;
+  font-weight: bold;
 }
