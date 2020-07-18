@@ -37,7 +37,7 @@
       class="container-fluid pt-3 pb-1 packers-color packers-color-border-all"
     >
       <h3><span>NFL DRAFT ANALYSIS</span></h3>
-      <h6><span>Average Draft Grade API</span></h6>
+      <h6><span>Average Draft Grade Info</span></h6>
     </div>
     <!--Title content ends-->
     <div
@@ -46,9 +46,9 @@
       <div class="row">
         <div class="col">
           <p>
-            This API will provide the average draft grade of the players drafted
-            by teams in a particular draft year with or without considering
-            steal grade.
+            This website will provide the average draft grade of the players
+            drafted by teams in a particular draft year with or without
+            considering steal grade.
           </p>
           <p *ngIf="data != null && data.length">
             <button
@@ -175,4 +175,12 @@
 
     <!--End of table-->
   </body>
+
+  <footer>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Copyright &copy;2020 The MIT License (MIT)</p>
+      </div>
+    </div>
+  </footer>
 </html>
