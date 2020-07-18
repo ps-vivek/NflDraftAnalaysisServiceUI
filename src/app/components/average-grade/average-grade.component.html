@@ -20,6 +20,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <!--Navigation bar logic begins-->
     <nav class="navbar navbar-expand-md navbar-custom">
       <div class="container-fluid">
         <div class="navbar-nav">
@@ -30,14 +31,15 @@
         </div>
       </div>
     </nav>
-
+    <!--Navigation bar logic ends-->
+    <!--Title content begins-->
     <div
       class="container-fluid pt-3 pb-1 packers-color packers-color-border-all"
     >
       <h3><span>NFL DRAFT ANALYSIS</span></h3>
       <h6><span>Average Draft Grade API</span></h6>
     </div>
-
+    <!--Title content ends-->
     <div
       class="container-fluid pb-1 packers-color packers-color-border-three-sides"
     >
@@ -51,7 +53,7 @@
           <p *ngIf="data != null && data.length">
             <button
               type="button"
-              class="btn btn-outline-primary"
+              class="btn packers-alternate-color-btn"
               (click)="isCollapsed = !isCollapsed"
               [attr.aria-expanded]="!isCollapsed"
               aria-controls="collapseExample"
@@ -124,8 +126,12 @@
               >
             </div>
             <!-- Read steal grade ends-->
-            <button class="btn btn-primary mr-1">Search</button>
-            <button class="btn btn-secondary" type="reset" (click)="onReset()">
+            <button class="btn packers-alternate-color-btn">Search</button>
+            <button
+              class="btn packers-alternate-color-btn"
+              type="reset"
+              (click)="onReset()"
+            >
               Reset
             </button>
           </form>
