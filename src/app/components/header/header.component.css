@@ -3,9 +3,10 @@ h3 {
 }
 h3 span {
   border-radius: 8px;
-  border-color: #ffb612;
+  border-color: white;
   border-style: groove;
   border-width: 2px;
+  color: #ffb612;
 }
 .packers-color {
   background-color: #203731;
