@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AverageGradeService } from './../../services/average-grade.service';
-import { AverageProspectGradeInfo } from './../../average-prospect-grade-info';
-import { Router, ActivatedRoute } from '@angular/router';
+import {
+  AverageGradeService,
+  AverageProspectGradeInfo,
+} from './../../services/average-grade.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-average-grade',
@@ -55,8 +56,6 @@ export class AverageGradeComponent implements OnInit {
 
   constructor(
     private averageGradeService: AverageGradeService,
-    private route: Router,
-    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder
   ) {}
 

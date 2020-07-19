@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!--Navigation & Title bar content -->
+    <app-header></app-header>
+    <div
+      class="container-fluid pb-1 pt-2 packers-color packers-color-border-three-sides"
+    >
+      <h6 class="packers-color-gold">
+        <span>Pre-Draft Prospect Grade Details</span>
+      </h6>
+      <div class="row">
+        <div class="col">
+          <p>
+            This space will provide the pre-draft info related to various
+            prospects compiled by NFL every year.
+          </p>
+          <p *ngIf="data != null && getPaginatedContents().length">
+            <button
+              type="button"
+              class="btn packers-alternate-color-btn"
+              (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed"
+              aria-controls="collapseExample"
+            >
+              Show/Hide Grades
+            </button>
+          </p>
+        </div>
+
+        <div class="col">
+          <form
+            #fo="ngForm"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit(fo)"
+          >
+            <div class="form-row">
+              <!-- Validation for year Starts-->
+              <div class="form-group col-4">
+                <label>Year</label>
+                <select
+                  formControlName="year"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.year.errors }"
+                >
+                  <option selected>Choose Year...</option>
+                  <option *ngFor="let year of years" [ngValue]="year">
+                    {{ year }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="submitted && f.year.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.year.errors.required">Year is required</div>
+                </div>
+              </div>
+              <!-- Validation for year ends-->
+            </div>
+
+            <button class="btn packers-alternate-color-btn">Search</button>
+            <button
+              class="btn packers-alternate-color-btn"
+              type="reset"
+              (click)="onReset()"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End of form-->
+
+    <div class="row">
+      <div class="col">
+        <div
+          id="collapseExample"
+          [ngbCollapse]="isCollapsed"
+          *ngIf="data != null && getPaginatedContents().length"
+        >
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr class="packers-header-colors">
+                    <th>Player Name</th>
+                    <th>College</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th>College Class</th>
+                    <th>Pre-Draft Grade</th>
+                    <th>Year</th>
+                    <th>Conference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="packers-data-colors"
+                    *ngFor="let d of getPaginatedContents()"
+                  >
+                    <td>{{ d.player }}</td>
+                    <td>{{ d.college }}</td>
+                    <td>{{ d.position }}</td>
+                    <td>{{ d.status }}</td>
+                    <td>{{ d.collegeClass }}</td>
+                    <td>{{ d.grade }}</td>
+                    <td>{{ d.year }}</td>
+                    <td>{{ d.conference }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--End of table-->
+  </body>
+</html>

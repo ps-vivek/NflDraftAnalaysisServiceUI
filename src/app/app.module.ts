@@ -8,23 +8,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AverageGradeComponent } from './components/average-grade/average-grade.component';
-import { AverageGradeWithStealComponent } from './components/average-grade-with-steal/average-grade-with-steal.component';
 import { DraftAnalysisHomeComponent } from './components/draft-analysis-home/draft-analysis-home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PredraftGradeDetailsComponent } from './components/predraft-grade-details/predraft-grade-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AverageGradeComponent,
-    AverageGradeWithStealComponent,
     DraftAnalysisHomeComponent,
     AboutComponent,
     NotFoundComponent,
     FooterComponent,
     HeaderComponent,
+    PredraftGradeDetailsComponent,
   ],
   imports: [
     BrowserModule,

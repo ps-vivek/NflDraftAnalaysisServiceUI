@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AverageProspectGradeInfo } from './../average-prospect-grade-info';
 const avgGradeWithoutStealUrl = 'http://localhost:9595/draft/teamgrades/?';
-const avgGradeWithStealUrl =
-  'http://localhost:9595/draft/teamgradeswithsteal/?';
+
+export interface AverageProspectGradeInfo {
+  noOfPlayersDrafted: number;
+  teamName: string;
+  averageGrade: number;
+  playersDrafted: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,12 +29,6 @@ export class AverageGradeService {
         teamName +
         '&stealgrade=' +
         isStealGrade
-    );
-  }
-
-  getAverageWithStealGrade(teamName: String, year: String): Observable<any> {
-    return this.http.get(
-      avgGradeWithStealUrl + 'year=' + year + '&team=' + teamName
     );
   }
 }
