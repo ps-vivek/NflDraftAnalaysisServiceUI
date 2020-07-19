@@ -22,9 +22,7 @@
   <body>
     <app-header></app-header>
 
-    <div
-      class="container-fluid pb-1 pt-3 packers-color packers-color-border-three-sides"
-    >
+    <div class="container-fluid pb-1 nfl-color">
       <div class="row">
         <div class="col">
           <p>
@@ -45,32 +43,38 @@
       </div>
       <div class="row">
         <div class="col-sm">
-          <h2 id="packers-color-gold">Average Draft Grade</h2>
-          <p>
-            This page will provide the average draft grade of the players
-            drafted by teams in a particular draft year without considering
-            steal grade.
-          </p>
+          <h2 style="text-align: left;">
+            <span>Average Draft Grades:</span>
+          </h2>
+          <pre>
+This page will provide the average draft grade of 
+the players drafted by teams in a given draft 
+year with or without considering steal grade.           
+</pre
+          >
           <p>
             <a
               routerLink="/nfldraftanalysis/averagegrades"
               target="_self"
-              class="btn packers-alternate-color-btn"
+              class="btn nfl-alternate-color-btn"
               >Fetch Average Draft Grades »</a
             >
           </p>
         </div>
         <div class="col-sm">
-          <h2 id="packers-color-gold">Pre-Draft Prospect Details</h2>
-          <p>
-            This page will provide pre-draft information related to the
-            prospects eligible for the drafts in a given year.
-          </p>
+          <h2 style="text-align: left;">
+            <span>Pre-Draft Prospect Details:</span>
+          </h2>
+          <pre>
+This page will provide pre-draft information related 
+to the prospects eligible for the drafts in a given 
+year.</pre
+          >
           <p>
             <a
               routerLink="/nfldraftanalysis/predraftdetails"
               target="_self"
-              class="btn packers-alternate-color-btn"
+              class="btn nfl-alternate-color-btn"
               >Fetch Pre-Draft Prospect Details »</a
             >
           </p>

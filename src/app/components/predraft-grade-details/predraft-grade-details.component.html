@@ -21,10 +21,8 @@
   <body>
     <!--Navigation & Title bar content -->
     <app-header></app-header>
-    <div
-      class="container-fluid pb-1 pt-2 packers-color packers-color-border-three-sides"
-    >
-      <h6 class="packers-color-gold">
+    <div class="container-fluid pb-1 pt-2 sf-color sf-color-border-three-sides">
+      <h6 class="sf-color">
         <span>Pre-Draft Prospect Grade Details</span>
       </h6>
       <div class="row">
@@ -36,7 +34,7 @@
           <p *ngIf="data != null && getPaginatedContents().length">
             <button
               type="button"
-              class="btn packers-alternate-color-btn"
+              class="btn sf-alternate-color-btn"
               (click)="isCollapsed = !isCollapsed"
               [attr.aria-expanded]="!isCollapsed"
               aria-controls="collapseExample"
@@ -76,9 +74,9 @@
               <!-- Validation for year ends-->
             </div>
 
-            <button class="btn packers-alternate-color-btn">Search</button>
+            <button class="btn sf-alternate-color-btn">Search</button>
             <button
-              class="btn packers-alternate-color-btn"
+              class="btn sf-alternate-color-btn"
               type="reset"
               (click)="onReset()"
             >
@@ -101,7 +99,7 @@
             <div class="card-body">
               <table class="table table-striped">
                 <thead>
-                  <tr class="packers-header-colors">
+                  <tr class="sf-header-colors">
                     <th>Player Name</th>
                     <th>College</th>
                     <th>Position</th>
@@ -114,7 +112,7 @@
                 </thead>
                 <tbody>
                   <tr
-                    class="packers-data-colors"
+                    class="sf-data-colors"
                     *ngFor="let d of getPaginatedContents()"
                   >
                     <td>{{ d.player }}</td>

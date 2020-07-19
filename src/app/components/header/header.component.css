@@ -1,35 +1,34 @@
 h3 {
   text-align: center;
+  border-style: groove;
 }
 h3 span {
-  border-radius: 8px;
-  border-color: white;
-  border-style: groove;
+  border-radius: 16px;
+  border-color: #013369;
+  border-style: outset;
   border-width: 2px;
-  color: #ffb612;
+  color: #013369;
+  background-color: white;
+  font-weight: bolder;
+  font-family: helvetica;
+  font-style: italic;
 }
-.packers-color {
-  background-color: #203731;
-  color: white;
-}
-
-.packers-color-border-all {
-  border-left: 2px solid #ffb612;
-  border-right: 2px solid #ffb612;
-  border-top: 1px solid #ffb612;
-  border-bottom: 1px solid #ffb612;
+.nfl-color {
+  background-color: black;
+  color: #d50a0a;
 }
 
 .navbar-custom {
-  background-color: #ffb612;
-  border-style: groove;
-  border-left: 2px solid #203731;
-  border-right: 2px solid #203731;
-  border-top: 2px solid #203731;
-  border-bottom: 1px solid #203731;
+  background-color: #013369;
 }
 
 .nav-link {
-  color: #393e52;
-  font-weight: bold;
+  color: #013369;
+  font-weight: bolder;
+  border-color: #d50a0a;
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 8px;
+  background-color: white;
+  font-family: helvetica;
 }

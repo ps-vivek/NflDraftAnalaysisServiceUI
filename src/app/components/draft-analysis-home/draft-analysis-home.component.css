@@ -1,25 +1,32 @@
-.packers-alternate-color-btn {
-  color: #393e52;
-  background-color: #ffb612;
-  border-color: #203731;
+.nfl-alternate-color-btn {
+  color: #013369;
+  background-color: white;
+  border-color: #013369;
   border-radius: 8px;
   border-style: groove;
-  border-width: 2px;
-  font-size: large;
-  font-weight: bold;
+  border-width: 4px;
+  font-size: medium;
+  font-weight: bolder;
+  font-family: helvetica;
 }
 
-.packers-color {
-  background-color: #203731;
-  color: white;
+.nfl-color {
+  background-color: white;
+  color: #013369;
+  font-style: oblique;
+  font-family: helvetica;
+  font-weight: lighter;
 }
 
-.packers-color-border-three-sides {
-  border-left: 2px solid #ffb612;
-  border-right: 2px solid #ffb612;
-  border-bottom: 1px solid #ffb612;
+h2 span {
+  color: #013369;
+  font-size: x-large;
+  text-decoration: underline;
+  text-align: left;
+  font-family: helvetica;
 }
 
-#packers-color-gold {
-  color: #ffb612;
+pre {
+  font-family: helvetica;
+  font-size: medium;
 }

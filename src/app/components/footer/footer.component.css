@@ -5,10 +5,7 @@ footer {
   width: 100%;
   /* Height of the footer*/
   height: 40px;
-  background: #ffb612;
-  color: #393e52;
+  color: white;
+  background-color: #013369;
   font-weight: bold;
-  border-color: #203731;
-  border-width: 2px;
-  border-style: groove;
 }
