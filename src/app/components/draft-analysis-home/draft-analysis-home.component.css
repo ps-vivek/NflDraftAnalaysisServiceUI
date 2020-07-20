@@ -13,13 +13,12 @@
 .nfl-color {
   background-color: white;
   color: #013369;
-  font-style: oblique;
   font-family: helvetica;
-  font-weight: lighter;
+  font-weight: bolder;
 }
 
 h2 span {
-  color: #013369;
+  color: #d50a0a;
   font-size: x-large;
   text-decoration: underline;
   text-align: left;

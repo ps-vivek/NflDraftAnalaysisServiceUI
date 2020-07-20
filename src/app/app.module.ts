@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { AverageGradeComponent } from './components/average-grade/average-grade.component';
@@ -33,6 +34,7 @@ import { PredraftGradeDetailsComponent } from './components/predraft-grade-detai
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
 
   providers: [],

@@ -113,7 +113,7 @@
                 <tbody>
                   <tr
                     class="sf-data-colors"
-                    *ngFor="let d of getPaginatedContents()"
+                    *ngFor="let d of getPaginatedContents() | paginate: config"
                   >
                     <td>{{ d.player }}</td>
                     <td>{{ d.college }}</td>
@@ -126,6 +126,11 @@
                   </tr>
                 </tbody>
               </table>
+              <p style="text-align: center;">
+                <pagination-controls
+                  (pageChange)="pageChanged($event)"
+                ></pagination-controls>
+              </p>
             </div>
           </div>
         </div>

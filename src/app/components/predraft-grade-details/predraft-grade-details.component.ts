@@ -9,11 +9,26 @@ import { PaginatedPreDraftProspectDetails } from './../../services/predraft-grad
 })
 export class PredraftGradeDetailsComponent implements OnInit {
   public isCollapsed = false;
-  data: PaginatedPreDraftProspectDetails;
-  defaultStealGrade = false;
   registerForm: FormGroup;
   submitted = false;
+
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
+
+  defaultPageNumForPagination = 1;
+  defaultPageSizeForPagination = 4;
+  defaultSortField = 'player';
+  totalElementPaginationConfig: { [key: number]: number } = {
+    2014: 256,
+    2015: 256,
+    2016: 253,
+    2017: 253,
+    2018: 256,
+    2019: 254,
+    2020: 255,
+  };
+  config: any;
+
+  data: PaginatedPreDraftProspectDetails;
 
   constructor(
     private preDraftGradeDetailsService: PredraftGradeDetailsService,
@@ -24,14 +39,6 @@ export class PredraftGradeDetailsComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       year: ['', Validators.required],
     });
-
-    this.preDraftGradeDetailsService
-      .getPaginatedPreDraftProspectDetails(2014, 0, 10, 'player')
-      .subscribe((response) => {
-        console.log(response);
-        this.data = response;
-        console.log('Response obj:' + this.data.contents);
-      });
   }
 
   get f() {
@@ -47,25 +54,39 @@ export class PredraftGradeDetailsComponent implements OnInit {
     }
 
     let yearInput = this.registerForm.get('year').value;
-
-    // display form values on success
-    console.log(JSON.stringify(this.registerForm.value, null, 4));
+    console.log(this.totalElementPaginationConfig[yearInput]);
 
     this.preDraftGradeDetailsService
-      .getPaginatedPreDraftProspectDetails(yearInput, 0, 10, 'player')
+      .getPaginatedPreDraftProspectDetails(
+        yearInput,
+        this.defaultPageNumForPagination - 1,
+        this.totalElementPaginationConfig[yearInput],
+        this.defaultSortField
+      )
       .subscribe((response) => {
         console.log(response);
         this.data = response;
         console.log('Response obj:' + this.data.contents);
+
+        this.config = {
+          itemsPerPage: this.defaultPageSizeForPagination,
+          currentPage: this.defaultPageNumForPagination,
+          totalItems: this.getPaginatedContents().length,
+        };
       });
   }
 
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+    this.data.contents = [];
   }
 
   getPaginatedContents() {
     return this.data.contents;
+  }
+
+  pageChanged(event) {
+    this.config.currentPage = event;
   }
 }
