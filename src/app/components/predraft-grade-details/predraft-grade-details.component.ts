@@ -53,7 +53,7 @@ export class PredraftGradeDetailsComponent implements OnInit {
       return;
     }
 
-    let yearInput = this.registerForm.get('year').value;
+    const yearInput = this.registerForm.get('year').value;
     console.log(this.totalElementPaginationConfig[yearInput]);
 
     this.preDraftGradeDetailsService

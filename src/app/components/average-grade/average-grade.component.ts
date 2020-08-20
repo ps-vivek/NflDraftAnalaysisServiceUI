@@ -88,13 +88,13 @@ export class AverageGradeComponent implements OnInit {
 
     this.data = [];
 
-    let stealGradeInput =
+    const stealGradeInput =
       this.registerForm.get('stealGrade').value === '' ||
       this.registerForm.get('stealGrade').value === null
         ? this.defaultStealGrade
         : this.registerForm.get('stealGrade').value;
-    let teamNameInput = this.registerForm.get('team').value;
-    let yearInput = this.registerForm.get('year').value;
+    const teamNameInput = this.registerForm.get('team').value;
+    const yearInput = this.registerForm.get('year').value;
 
     this.averageGradeService
       .getAverageGrade(teamNameInput, yearInput, stealGradeInput as boolean)

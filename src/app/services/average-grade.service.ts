@@ -17,8 +17,8 @@ export class AverageGradeService {
   constructor(private http: HttpClient) {}
 
   getAverageGrade(
-    teamName: String,
-    year: String,
+    teamName: string,
+    year: string,
     isStealGrade: boolean
   ): Observable<AverageProspectGradeInfo[]> {
     return this.http.get<AverageProspectGradeInfo[]>(

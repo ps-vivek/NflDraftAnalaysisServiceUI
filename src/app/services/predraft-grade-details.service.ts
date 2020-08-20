@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface PreDraftProspectDetails {
-  player: String;
-  college: String;
-  status: String;
-  position: String;
-  team: String;
-  collegeClass: String;
+  player: string;
+  college: string;
+  status: string;
+  position: string;
+  team: string;
+  collegeClass: string;
   grade: number;
-  conference: String;
+  conference: string;
   year: number;
 }
 
@@ -34,7 +34,7 @@ export class PredraftGradeDetailsService {
     year: number,
     pageNumber: number,
     pageSize: number,
-    sortField: String
+    sortField: string
   ): Observable<PaginatedPreDraftProspectDetails> {
     return this.http.get<PaginatedPreDraftProspectDetails>(
       fetchPaginatedProspectDetailsUrl +
