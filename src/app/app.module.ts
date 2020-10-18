@@ -16,6 +16,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PredraftGradeDetailsComponent } from './components/predraft-grade-details/predraft-grade-details.component';
 import { ErrorIntercept } from './services/error.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { ErrorDialogService } from './services/errors/error-dialog.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,15 +30,19 @@ import { ErrorIntercept } from './services/error.interceptor';
     FooterComponent,
     HeaderComponent,
     PredraftGradeDetailsComponent,
+    ErrorDialogComponent,
   ],
   imports: [
-    BrowserModule,
+  
+  BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
 
   providers: [
@@ -43,6 +51,10 @@ import { ErrorIntercept } from './services/error.interceptor';
       useClass: ErrorIntercept,
       multi: true,
     },
+    {
+      provide: MatDialogRef,
+      useValue:{ appearance: "fill" }
+    },ErrorDialogService
   ],
   bootstrap: [AppComponent],
 })
