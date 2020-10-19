@@ -129,32 +129,43 @@
           [ngbCollapse]="isCollapsed"
           *ngIf="data != null && data.length"
         >
-          <div class="card">
-            <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr class="packers-header-colors">
-                    <th>Team Name</th>
-                    <th>Average Grade</th>
-                    <th>No Of Players Drafted</th>
-                    <th>Players Drafted</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="packers-data-colors" *ngFor="let d of data">
-                    <td>{{ d.teamName }}</td>
-                    <td>{{ d.averageGrade }}</td>
-                    <td>{{ d.noOfPlayersDrafted }}</td>
-                    <td>{{ d.playersDrafted }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="teamName">
+              <th class="packer-headers" mat-header-cell *matHeaderCellDef> Team Name </th>
+              <td class="packers-data" mat-cell *matCellDef="let element"> {{element.teamName}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="averageGrade">
+              <th class="packer-headers" mat-header-cell *matHeaderCellDef> Average Grade </th>
+              <td class="packers-data" mat-cell *matCellDef="let element"> {{element.averageGrade}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="noOfPlayersDrafted">
+              <th class="packer-headers" mat-header-cell *matHeaderCellDef> No Of Players Drafted </th>
+              <td class="packers-data" mat-cell *matCellDef="let element"> {{element.noOfPlayersDrafted}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="playersDrafted">
+              <th class="packer-headers" mat-header-cell *matHeaderCellDef> Players Drafted </th>
+              <td class="packers-data" mat-cell *matCellDef="let element"> {{element.playersDrafted}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row  *matRowDef="let row; columns: displayedColumns;" ></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        <!--End of table-->
         </div>
       </div>
     </div>
-
-    <!--End of table-->
   </body>
 </html>
+

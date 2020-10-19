@@ -14,7 +14,6 @@ export class ErrorIntercept implements HttpInterceptor {
   constructor(
     private errorDialogService: ErrorDialogService
   ) {}
-
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler

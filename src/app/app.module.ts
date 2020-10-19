@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { ErrorDialogService } from './services/errors/error-dialog.service';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table'  
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +36,7 @@ import { ErrorDialogService } from './services/errors/error-dialog.service';
     ErrorDialogComponent,
   ],
   imports: [
-  
-  BrowserModule,
+    BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -42,7 +44,9 @@ import { ErrorDialogService } from './services/errors/error-dialog.service';
     ReactiveFormsModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
 
   providers: [

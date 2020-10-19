@@ -24,7 +24,8 @@ h3 span {
 /**
 Overriding bootstrap values for setting table header and data colors
 **/
-table.table.table-striped tr.packers-data-colors td {
+table.table.table-striped tr.packers-data-colors td,
+.packers-data {
   background-color: #203731;
   color: white;
   border-color: #ffb612;
@@ -32,7 +33,8 @@ table.table.table-striped tr.packers-data-colors td {
   border-width: 1px;
 }
 
-table.table.table-striped tr.packers-header-colors th {
+table.table.table-striped tr.packers-header-colors th,
+.packer-headers {
   border-color: #ffb612;
   border-style: groove;
   border-width: 2px;
@@ -47,4 +49,8 @@ table.table.table-striped tr.packers-header-colors th {
   border-width: 2px;
   font-size: large;
   font-weight: bold;
+}
+
+table {
+  width: 80%;
 }

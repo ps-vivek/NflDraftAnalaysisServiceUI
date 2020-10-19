@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
 import {
   AverageGradeService,
   AverageProspectGradeInfo,
 } from './../../services/average-grade.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-average-grade',
   templateUrl: './average-grade.component.html',
   styleUrls: ['./average-grade.component.css'],
 })
-export class AverageGradeComponent implements OnInit {
+export class AverageGradeComponent implements OnInit,AfterViewInit  {
   public isCollapsed = false;
   data: AverageProspectGradeInfo[] = [];
   defaultStealGrade = false;
@@ -17,6 +19,7 @@ export class AverageGradeComponent implements OnInit {
   submitted = false;
   years = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
   teams = [
+    'All',
     'Arizona Cardinals',
     'Atlanta Falcons',
     'Baltimore Ravens',
@@ -53,7 +56,7 @@ export class AverageGradeComponent implements OnInit {
     'Tennessee Titans',
     'Washington Redskins',
   ];
-
+  dataSource :MatTableDataSource<AverageProspectGradeInfo>;
   constructor(
     private averageGradeService: AverageGradeService,
     private formBuilder: FormBuilder
@@ -69,8 +72,9 @@ export class AverageGradeComponent implements OnInit {
     this.averageGradeService
       .getAverageGrade('all', '2014', false)
       .subscribe((response) => {
-        console.log(response);
+       // console.log(response);
         this.data = response;
+        this.dataSource = new MatTableDataSource<AverageProspectGradeInfo>(this.data);
       });
   }
 
@@ -99,10 +103,10 @@ export class AverageGradeComponent implements OnInit {
     this.averageGradeService
       .getAverageGrade(teamNameInput, yearInput, stealGradeInput as boolean)
       .subscribe((response) => {
-        console.log(response);
         this.data = response;
+        this.dataSource = new MatTableDataSource<AverageProspectGradeInfo>(this.data);
       });
-
+      
     // display form values on success
     console.log(JSON.stringify(this.registerForm.value, null, 4));
   }
@@ -112,4 +116,14 @@ export class AverageGradeComponent implements OnInit {
     this.registerForm.reset();
     this.data = [];
   }
+
+  displayedColumns: string[] = ['teamName', 'averageGrade', 'noOfPlayersDrafted', 'playersDrafted'];
+  
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 }
+
